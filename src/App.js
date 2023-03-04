@@ -2,6 +2,15 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  var person = {
+    name:'Saiful Islam',
+    specialist:'AI',
+    duration:30
+  }
+  var style = {
+    color: 'red',
+    backgroundColor: 'salmon'
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -9,14 +18,8 @@ function App() {
         <p>
           Edit done cd react-core-concept<code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          I'll Learn React Insha-allah
-          </a>
+        <p style={style}>The award goes to {person.name} for his {person.specialist + ' ' + person.duration} contribution </p>
+        
       </header>
     </div>
   );
