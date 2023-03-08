@@ -1,3 +1,4 @@
+import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
@@ -31,6 +32,15 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+
+        <ul>
+          {
+            name.map(nam => <li>{nam}</li>)
+          }
+          {
+            products.map(product => <li>{product.name}</li>)
+          }
+        </ul>
        
         <p>Edit done cd react-core-concept<code>src/App.js</code> and save to reload.</p>
         <p className="" style={style}>The award goes to {person.name} for his {person.specialist + ' ' + person.duration} contribution </p>
@@ -54,6 +64,12 @@ function App() {
         <Product products={products[2]}></Product>
         <Product products={products[3]}></Product>
         {/* <Product name={products[4]}></Product> */}
+
+        {
+          products.map(pd => <Product product={pd}></Product>)
+        }
+
+        <Counter></Counter>
       </header>
     </div>
   );
@@ -86,6 +102,7 @@ function Invensionist(props){
 }
 
 function Product(props){
+  console.log(props)
   const style = {
     border:'2px solid cyan',
     borderRadius:'5px',
@@ -94,15 +111,23 @@ function Product(props){
     width:'300px',
     float:'left'
   }
-  const {name,price} = props.products;
+  const {name,price} = props.product;
+  // console.log(name,price)
   return(
     <div style={style}>
       <h1>{name}</h1>
       <h2>{price}</h2>
       <button>Buy Now</button>
+    </div>
+  )
+}
 
-     
+function Counter(props){
+  const [count, setCount] = useState(10);
 
+  return(
+    <div>
+      <h1>{count}</h1>
     </div>
   )
 }
